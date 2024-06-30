@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+
+    web:
+        build:
+            dockerfile: ./build/web/Dockerfile
+        container_name: ${COMPOSE_PROJECT_NAME}-web
+        ports:
+            - ${WEB_SERVER_HOST_PORT}:80 # Local port machine / Container port
+        volumes:
+            - ../:/var/www
+
+    database:
+        image: ${DB_SERVER_IMAGE}
+        container_name: ${COMPOSE_PROJECT_NAME}-db
+        volumes:
+            - db-data:/var/lib/mysql
+        ports:
+            - ${DB_SERVER_HOST_PORT}:80
+        restart: ${CONTAINER_RESTART}
+        environment:
+            MARIADB_DATABASE: ${DB_SERVER_DATABASE}
+            MARIADB_ROOT_PASSWORD: ${DB_SERVER_ROOT_PASSWORD}
+            MARIADB_USER: ${DB_SERVER_USER}
+            MARIADB_PASSWORD: ${DB_SERVER_PASSWORD}
+
+volumes:
+    db-data:
+        name: ${COMPOSE_PROJECT_NAME}_db_data
