@@ -1,0 +1,28 @@
+{% block body %}
+<section id="hw-contact" class="section">
+    <div>
+        <div>
+            <div>
+                <div class="address-container">
+                    <p class="title">{{ contact.title|trans }}</p>
+                    <div class="hw-underline-new"></div>
+                    {% for i in 0..contact.logo |length -1 %}
+                    <div class="address">
+                        <div>
+                            <img src="{{ asset('build/images/logos/' ~ contact.logo[i] ) }}" alt="">
+                        </div>
+                        <p>{{ contact.text[i]|trans|raw }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="w-full">
+                    {% include 'form/formContact.html.twig' %}
+                </div>
+            </div>
+            <div class="contact-map">
+                <div id="map-id"></div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

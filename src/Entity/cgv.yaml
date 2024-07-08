@@ -1,0 +1,77 @@
+title:
+  cgv.title
+subTitle:
+  cgv.subTitle
+picture:
+  src:
+    legal-bg.jpg
+  alt:
+    cgv.picture.alt
+sections:
+  section1:
+    title:
+      cgv.section1.title
+    content:
+      cgv.section1.content1
+  section2:
+    title:
+      cgv.section2.title
+    content:
+      cgv.section2.content1
+  section3:
+    title:
+      cgv.section3.title
+    content:
+      cgv.section3.content1
+  section4:
+    title:
+      cgv.section4.title
+    content:
+      cgv.section4.content1
+  section5:
+    title:
+      cgv.section5.title
+    content:
+      cgv.section5.content1
+  section6:
+    title:
+      cgv.section6.title
+    content:
+      title:
+        - cgv.section6.content.title1
+        - cgv.section6.content.title2
+        - cgv.section6.content.title3
+      description:
+        - cgv.section6.content.description1
+        - cgv.section6.content.description2
+        - cgv.section6.content.description3
+  section7:
+    title:
+      cgv.section7.title
+    content:
+      title:
+        - cgv.section7.content.title1
+        - cgv.section7.content.title2
+      description:
+        - cgv.section7.content.description1
+        - cgv.section7.content.description2
+  section8:
+    title:
+      cgv.section8.title
+    content:
+      cgv.section8.content1
+  section9:
+    title:
+      cgv.section9.title
+    content:
+      cgv.section9.content1
+  section10:
+    title:
+      cgv.section10.title
+    content:
+      cgv.section10.content1
+  section11:
+    title:
+      cgv.section11.title
+    content:
+      cgv.section11.content1

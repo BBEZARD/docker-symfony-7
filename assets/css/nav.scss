@@ -1,0 +1,329 @@
+#hw-header {
+  @apply sticky;
+  > div {
+    @apply bg-gray-800;
+    > div {
+      @apply max-w-5xl mx-auto py-4;
+      @screen md {
+        @apply py-0;
+      }
+      > div {
+        @apply flex justify-between mx-4 h-48;
+        @screen sm {
+          @apply h-24;
+        }
+        @screen md {
+          @apply h-16;
+        }
+        @screen lg {
+          @apply mx-0;
+        }
+        > div {
+          @apply z-10 p-2;
+        }
+      }
+    }
+  }
+  nav{
+    @apply relative mx-auto bg-white;
+    > div {
+      @apply flex justify-end items-center max-w-5xl mx-auto h-20;
+    }
+    &.modal-off {
+      overflow: hidden;
+      &:after{
+        @apply fixed bg-black opacity-0 z-20 transition-opacity transform transition duration-500;
+        transform: scale(0);
+        transition-delay: $duration;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        content: '';
+      }
+    }
+    &.modal-on {
+      overflow: visible;
+      &:after {
+        @apply fixed bg-black opacity-50 z-20 transition-opacity transition duration-500;
+        transform: translateY(0);
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        content: '';
+      }
+    }
+  }
+}
+
+.header-logo {
+  @apply items-end bg-white;
+}
+.header-logo-top {
+  @apply absolute block h-16;
+  top: calc(theme('spacing.56'));
+  img {
+    @apply h-12 ;
+  }
+  @screen sm {
+    @apply h-24;
+    top: theme('spacing.24');
+    img {
+      @apply h-12 ;
+    }
+  }
+  @screen md {
+    @apply h-16;
+    top: theme('spacing.16');
+    img {
+      @apply h-16 ;
+    }
+  }
+  @screen lg {
+    @apply shadow-md h-32;
+    img {
+      @apply h-16 ;
+    }
+    @apply flex relative top-0;
+  }
+}
+
+.header-text {
+  @apply flex flex-1 flex-col justify-between items-center text-lg text-white;
+  @screen md {
+    @apply flex-row ml-6;
+  }
+  >p {
+    @screen lg {
+      @apply w-1/3;
+    }
+  }
+  > div {
+    @apply flex flex-1 flex-col justify-between;
+    align-items: center;
+    @screen sm {
+      @apply flex-row;
+    }
+    p {
+      @apply ml-2;
+    }
+    p:last-child {
+      img {
+        @apply h-4 mt-2;
+      }
+    }
+  }
+}
+
+.header-logo-sticky {
+  @apply absolute block;
+  top: calc(theme('spacing.56'));
+  img {
+    @apply h-12;
+  }
+
+  @screen sm {
+    top: theme('spacing.32');
+  }
+  @screen md {
+    top: theme('spacing.16');
+  }
+}
+
+#nav-menu-icon {
+  @apply absolute block bg-orange-600 rounded-full z-50 overflow-hidden;
+  right: 0;
+  width: theme('spacing.16');
+  height: theme('spacing.16');
+  transition: transform $duration;
+  &:before {
+    z-index: 10;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -50%;
+    bottom: -40%;
+    left: -50%;
+    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255,255,255,0.5) 50%, rgba(229, 172, 142, 0));
+    transform: rotateZ(60deg) translate(-5em, 7.5em);
+  }
+  &:hover:before {
+    animation: sheen 1s forwards;
+  }
+  span {
+    @apply bg-white block absolute;
+    top: 50%;
+    left: 50%;
+    width: 22px;
+    height: 2px;
+    transform: translateX(-50%) translateY(-50%);
+    &:before, &:after {
+      @apply absolute block top-0 left-0 bg-white;
+      content: '';
+      width: 22px;
+      height: 2px;
+      transform: translateY(-6px);
+      transition: transform $duration;
+    }
+    &:after{
+      transform: translateY(6px);
+    }
+  }
+  svg{
+    fill: theme('colors.orange.600');
+    stroke-width: 2px;
+    stroke: theme('colors.white');
+    stroke-dasharray: 170;
+    stroke-dashoffset: 170;
+    transition: stroke-dashoffset $duration, transform $duration;
+  }
+  &.is-opened {
+    transform: rotate(180deg) ;
+    span{
+      @apply transition duration-500 bg-opacity-0;
+      &:before, &:after{
+        transform-origin: 50% 50%;
+      }
+      &:before{
+        transform: translateY(0) rotate(45deg);
+      }
+      &:after{
+        transform: translateY(0) rotate(-45deg);
+      }
+    }
+    svg{
+      transform: rotate(-180deg);
+      stroke-dashoffset: 0;
+    }
+  }
+  @screen lg {
+    @apply hidden;
+  }
+}
+.nav-list-container {
+  @apply absolute;
+  right: -200px;
+  top: theme('spacing.16');
+  width: 171px;
+  height: 525px;
+  .nav-list-small {
+    @apply z-40 mt-2 absolute;
+    perspective: 500px;
+    transform: translateX(200px);
+    li {
+      transform-origin: 50% 50%;
+      @apply bg-white opacity-0 p-4 border-solid border-b-2 border-orange-600;
+      a {
+        @apply p-4 text-lg font-semibold;
+        &:hover {
+          @apply text-gray-700;
+        }
+        &:focus {
+          @apply outline-none;
+        }
+      }
+    }
+    &.is-opened {
+      animation: nav-list-in $duration forwards;
+      transform: translateX(0px);
+      li {
+        @for $i from 1 through 8 {
+          &:nth-child(#{$i}) {
+            animation: nav-slide-in $duration forwards;
+            animation-delay: (100ms*$i);
+          }
+        }
+      }
+    }
+    &.is-closed {
+      transform: translateX(200px);
+      transition: transform $duration;
+      transition-delay: $duration*2;
+      li{
+        @apply opacity-100;
+        @for $i from -7 through -1 {
+          &:nth-child(#{-$i}) {
+            animation: nav-slide-out $duration forwards;
+            animation-delay: (50ms*-$i);
+          }
+        }
+      }
+    }
+    @screen lg {
+      @apply hidden;
+    }
+  }
+  li.dropdown-small {
+    @apply relative;
+    .dropdown-content {
+      @apply hidden absolute top-0 pt-0 bg-white z-10;
+      left: -120px;
+    }
+    &:hover .dropdown-content {
+      @apply flex;
+      a {
+        @apply text-red-800;
+        &:hover {
+          @apply text-red-700;
+        }
+      }
+    }
+  }
+}
+
+.nav-list-large {
+  @apply mr-4 hidden;
+  @screen lg {
+    @apply flex;
+  }
+  @screen xl {
+    @apply mr-0;
+  }
+  li {
+    @apply flex justify-center items-center;
+    a {
+      @apply px-4 py-1 text-lg font-bold text-gray-900;
+      &:focus {
+        @apply outline-none;
+      }
+    }
+  }
+  li.dropdown {
+    @apply relative;
+    .dropdown-content {
+      @apply hidden absolute top-0 pt-0 bg-white z-10 shadow-lg;
+    }
+    &:hover .dropdown-content {
+      @apply flex;
+    }
+    li {
+      @apply py-2;
+      a {
+        @apply text-red-800;
+      }
+    }
+  }
+}
+
+.nav-underline
+{
+  position: relative;
+  a{
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      height: 4px;
+      width: 0;
+      left: calc(50%);
+      background: theme('colors.orange.600');
+      transition: left, width, 150ms ease-in-out;
+    }
+    &:hover:after
+    {
+      left: calc(50% - 20px);
+      width: 40px;
+    }
+  }
+}

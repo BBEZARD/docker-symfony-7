@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title.categories | trans }} {{ category.name }}{% endblock %}
+
+{% block body %}
+<section id="hw-articles-categories" class="container">
+    <h1>{{ title.categories | trans }} {{ category.name }}</h1>
+    <div class="hw-underline-new"></div>
+    {% include 'shared/articles/_articles.html.twig' with {
+        'badge': false,
+        'items': category.articles
+    } %}
+</section>
+    {% include 'shared/cookie/cookie.html.twig' %}
+{% endblock %}

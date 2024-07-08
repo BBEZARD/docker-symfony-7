@@ -1,0 +1,111 @@
+########################################
+# Articles errors #######################
+########################################
+article.metaTitle.not_blank:
+  La balise <title> ne doit pas être vide
+article.metaTitle.type:
+  La balise <title> doit être une chaîne de caratères
+article.metaTitle.min_message:
+  La balise <title> doit contenir au minimum {{ limit }} caractères de longueur
+article.slug.not_blank:
+  L'url ne doit pas être vide
+article.slug.type:
+  L'url doit être une chaîne de caratères
+article.slug.min_message:
+  L'url doit contenir au minimum {{ limit }} caractères de longueur
+article.title.not_blank:
+  L'article doit obligatoirement contenir un titre
+article.title.type:
+  L'article doit être une chaîne de caratères
+article.title.min_message:
+  Le titre doit contenir au minimum {{ limit }} caractères de longueur
+article.title.max_message:
+  Le titre ne doit pas dépasser {{ limit }} caractères de longueur
+article.title.uniq :
+  Le nom est déjà utilisé par une autre article !
+article.shortDescription.not_blank:
+  La description courte est obligatoire
+article.shortDescription.type:
+  La description courte doit être une chaîne de caratères
+article.shortDescription.min_message:
+  La description courte doit contenir au minimum {{ limit }} caractères de longueur
+article.summary.not_blank:
+  Le sommaire est obligatoire
+article.summary.type:
+  Le sommaire doit être une chaîne de caratères
+article.summary.min_message:
+  Le sommaire doit contenir au minimum {{ limit }} caractères de longueur
+article.content.not_blank:
+  Le contenu de l'article est obligatoire
+article.content.type:
+  Le contenu de l'article doit être une chaîne de caratères
+article.content.min_message:
+  Le contenu de l'article doit contenir au minimum {{ limit }} caractères de longueur
+article.mainPicture.not_blank:
+  L'image de l'article est obligatoire
+article.mainPicture.type:
+  L'image doit être une chaîne de caratères
+article.mainPicture.extension:
+  L'image doit être un format valide (.jpg, .gif ou .png)
+article.mainPictureCaption.type:
+  L'image doit être être une chaîne de caratères
+article.mainPictureCaption.min_message:
+  Le contenu de l'article doit contenir au minimum {{ limit }} caractères de longueur
+article.categories.not_blank:
+  L'article doit obligatoirement contenir un titre
+article.categories.type:
+  L'article doit être une chaîne de caratères
+article.categories.min_message:
+  Le titre doit contenir au minimum {{ limit }} caractères de longueur
+article.categories.max_message:
+  Le titre ne doit pas dépasser {{ limit }} caractères de longueur
+########################################
+# Categories errors #######################
+########################################
+category.name.not_blank:
+  La catégorie doit obligatoirement contenir un nom
+category.name.type:
+  La catégorie doit être une chaîne de caratères
+category.name.min_message:
+  La catégorie doit contenir au minimum {{ limit }} caractères de longueur
+category.name.max_message:
+  La catégorie ne doit pas dépasser {{ limit }} caractères de longueur
+category.name.uniq :
+  Le nom est déjà utilisé par une autre catégorie !
+category.description.not_blank:
+  La catégorie doit obligatoirement contenir une description courte
+category.description.type:
+  La catégorie doit contenir une description sous forme de chaîne de caratères
+category.description.min_message:
+  La catégorie doit contenir une description d'au minimum de {{ limit }} caractères de longueur
+########################################
+# Contact errors #######################
+########################################
+#Firstname validator rules
+contact.firstname.not_blank:
+  S'il vous plait, entrez votre prénom
+contact.firstname.min_message:
+  Votre prénom doit être au moins composé de {{ limit }} caractères
+contact.firstname.max_message:
+  Votre prénom ne doit pas dépasser {{ limit }} caractères
+#Lastname validator rules
+contact.lastname.not_blank:
+  S'il vous plait, entrez votre nom
+contact.lastname.min_message:
+  Votre nom doit être au moins composé de {{ limit }} caractères
+contact.lastname.max_message:
+  Votre nom ne doit pas dépasser {{ limit }} caractères
+#ContactEmail validator rules
+contact.email.not_blank:
+  S'il vous plait, entrez votre adresse e-mail
+contact.email.error:
+  Votre e-mail {{ value }} n'est pas une adresse valide
+#contactMessage validator rules
+contact.message.not_blank:
+  S'il vous plait, entrez votre message
+contact.message.min_message:
+  Votre message doit être au moins composé de {{ limit }} caractères
+contact.message.max_message:
+  Votre message ne doit pas dépasser {{ limit }} caractères
+contact.reCaptcha:
+  CAPTCHA non valide, veuillez essayer de nouveau

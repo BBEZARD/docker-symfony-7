@@ -1,0 +1,20 @@
+{% block body %}
+	<section id="hw-benefit" class="section">
+		<h2>{{ benefit.title|trans|raw }}</h2>
+		<div class="hw-underline-new"></div>
+		<div class="benefit-content">
+			{% for i in 0..benefit.card.header_slogan|length -1 %}
+				<div class="benefit-card">
+					<div class="benefit-card-header">
+						<p><img src="{{ asset('build/images/logos/' ~ benefit.card.header_img[i] ) }}" alt=""></p>
+						<p>{{ benefit.card.header_slogan[i]|trans|raw }}</p>
+					</div>
+					<div class="benefit-card-body">
+						<h3>{{ benefit.card.title[i]|trans|raw }}</h3>
+						<p>{{ benefit.card.content[i]|trans|raw }}</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

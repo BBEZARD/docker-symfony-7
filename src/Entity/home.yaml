@@ -1,0 +1,13 @@
+banner:
+  home.banner.title
+metaTitle: home.meta.title
+picture:
+  src_xs: depannage-informatique-saint-nazaire_320.jpg
+  src_md: depannage-informatique-saint-nazaire_640.jpg
+  src_lg: depannage-informatique-saint-nazaire_768.jpg
+  alt:
+    home.picture.alt
+title:
+  home.title
+content:
+  - home.content.1

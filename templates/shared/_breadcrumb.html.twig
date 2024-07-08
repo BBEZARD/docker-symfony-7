@@ -1,0 +1,6 @@
+<ul class="breadcrumb">
+    <li><a href="{{ path(route) }}"><img src="{{ asset('build/images/logos/home.svg') }}" style="width: 18px" alt=""></a></li>
+    {% for item in items %}
+    <li class="breadcrumbs-items">{{ item.name }}</li>
+    {% endfor %}
+</ul>

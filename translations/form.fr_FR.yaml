@@ -1,0 +1,93 @@
+###################################
+# Contact
+###################################
+contact.lastname:
+  Nom
+contact.lastname.placeholder:
+  Votre nom*
+contact.firstname:
+  Prénom
+contact.firstname.placeholder:
+  Votre prénom*
+contact.email:
+  E-mail
+contact.email.placeholder:
+  Votre E-mail*
+contact.message:
+  Votre message
+contact.message.placeholder:
+  Votre message*
+
+###################################
+# Flash
+###################################
+error:
+  erreur
+
+###################################
+# Article
+###################################
+article.metaTitle:
+  Balise title
+article.metaTitle.placeholder:
+  Entrez le contenu de de la balise <title>
+article.slug:
+  Adresse url
+article.slug.placeholder:
+  Entrez l'adresse url de l'article
+article.title:
+  Titre
+article.title.placeholder:
+  Tapez le titre de l'article
+article.shortDescription:
+  Description courte
+article.summary:
+  Sommaire
+article.shortDescription.placeholder:
+  Tapez une description courte mais assez parlante
+article.content:
+  Contenu de l'article
+article.content.placeholder:
+  Tapez le contenu de l'article
+article.image:
+  Image
+article.image.placeholder:
+  Tapez une url d'image
+article.mainPictureCaption:
+  Légende de l'image
+article.mainPictureCaption.placeholder:
+  Tapez une légende pour l'image
+article.category.name:
+  Catégories
+article.category.name.placeholder:
+  Sélectionnez une ou plusieurs catégories
+article.status:
+  status
+article.draft:
+  Brouillon
+article.published:
+  Publié
+
+###################################
+# Category
+###################################
+category.name:
+  Nom
+category.name.placeholder:
+  Tapez une description parlante de la catégorie
+category.description:
+  Description
+category.description.placeholder:
+  Nome de la catégorie
+
+###################################
+# Login
+###################################
+login.email:
+  Identifiant
+login.email.placeholder:
+  Veuillez saisir votre identifiant
+login.password:
+  Mot de passe
+login.password.placeholder:
+  Veuillez saisir votre mot de passe

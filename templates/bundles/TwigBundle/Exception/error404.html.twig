@@ -1,0 +1,19 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}Hourraweb informatique{% endblock %}
+{% block body %}
+<section class="relative container max-w-5xl mx-auto my-12 flex flex-row justify-center">
+{#    <img src="{{ asset('build/images/logos/' ~ header.error404.logo.name ) }}" alt="{{ header.error404.logo.alt|trans }}">#}
+    <div>
+        <h2 class="hw-404 text-center">404</h2>
+        <h3 class="text-3xl">{{ header.error404.title|trans|upper }}</h3>
+        <div class="hw-underline-new"></div>
+        <p class="my-4 text-lg">{{ header.error404.content|trans }}</p>
+        <form action="{{ path('home') }}">
+            <div class="form-btn">
+                <button type="submit" class='block w-full px-2 py-1 text-xl font-semibold focus:outline-none'><span>{{ header.error404.btn.txt|trans }}</span></button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

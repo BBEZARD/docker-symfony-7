@@ -1,0 +1,21 @@
+message:
+  cookie.description
+btnMore:
+  cookie.btnMore
+btnValid:
+  cookie.btnValid
+table:
+  header:
+    - cookie.table.header1
+    - cookie.table.header2
+    - cookie.table.header3
+  body:
+    title:
+      - cookie.table.body.th1
+      - cookie.table.body.th2
+    content:
+      - cookie.table.body.td1
+      - cookie.table.body.td2
+    id:
+      - cookie.table.body.id1
+      - cookie.table.body.id2

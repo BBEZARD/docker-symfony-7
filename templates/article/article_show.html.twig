@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{% block metaDescription %}
+    {% autoescape false %}
+        <meta name="description" content="{{ article.shortDescription | striptags }}">
+    {% endautoescape %}
+{% endblock %}
+
+{% block title %}{{ article.metaTitle }}{% endblock %}
+
+{% block body %}
+    <div class="hw-article-container">
+        <section id="hw-articles-show" class="container">
+            <div class="badge">
+                {% include 'shared/_badge.html.twig' with {
+                    'route': 'articles',
+                    'items': article.categories
+                } %}
+            </div>
+            <div class="header">
+                {% if app.user %}
+                <p>{{ title.createdAt | trans }} {{ article.createdAt | date('d/m/Y') }}</p>
+                {% endif %}
+                {% if article.publishedAt %}
+                    <p>{{ title.publishedAt | trans }} {{ article.publishedAt | date('d/m/Y') }}</p>
+                    <p>{{ title.updatedAt | trans }} {{ article.updatedAt | date('d/m/Y') }}</p>
+                {% endif %}
+            </div>
+            <div class="articles md:flex-row">
+                <div class="articles-items md:w-2/3">
+                    <div class="articles-header">
+                        {% if app.user %}
+                            <div class="a-btn articles-btn">
+                                <a href="{{ path('article_edit', {'id': article.id}) }}">
+                                    {{ title.action.edit | trans }}</a>
+                            </div>
+                        {% endif %}
+                        <figure>
+                            <img src="{{ article.mainPicture }}" alt="{{ article.slug }}">
+                            {% if article.mainPictureCaption %}
+                                <figcaption>{{ article.mainPictureCaption }}</figcaption>
+                            {% endif %}
+                        </figure>
+                    </div>
+                    <div class="articles-content m-0 px-4">
+                        <h1>{{ article.title | raw }}</h1>
+                        <div class="hw-bar"></div>
+                        <div>{{ article.content | raw }}</div>
+                    </div>
+                </div>
+                <aside class="md:w-1/3 md:pr-0 md:pt-0">
+                    <div>
+                        <p class="hw-article-aside-title">Sommaire</p>
+                        {{ article.summary | raw }}
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </div>
+    {% include 'shared/cookie/cookie.html.twig' %}
+{% endblock %}

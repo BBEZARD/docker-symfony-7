@@ -1,0 +1,42 @@
+#modal-1 {
+  @apply fixed left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none bg-no-repeat bg-center bg-cover;
+  .modal-bg {
+    @apply absolute bg-black inset-0 z-0 opacity-0 transition-opacity;
+  }
+  .modal-bg-on {
+    animation: show .5s forwards;
+  }
+  .modal-bg-off {
+    animation: hide .5s forwards;
+  }
+  .modal-content {
+    @apply w-full max-w-lg p-5 relative mx-auto my-auto shadow-lg bg-white;
+    .modal-body {
+      @apply text-center p-5 flex-auto justify-center;
+      h2 {
+        @apply text-2xl font-bold py-4;
+      }
+      p {
+        @apply text-lg text-gray-500 px-8;
+      }
+    }
+    .modal-footer {
+      @apply p-3 mt-2 text-center ;
+      @screen md {
+        @apply block ;
+      }
+      .btn-modal-cancel {
+        @apply mb-2 bg-white px-5 py-2 text-lg shadow-sm font-medium tracking-wider border text-gray-600;
+        @screen md {
+          @apply mb-0 ;
+        }
+      }
+      .btn-modal-delete {
+        @apply mb-2 bg-red-500 px-5 py-2 text-lg shadow-sm font-medium tracking-wider border text-gray-100;
+        @screen md {
+          @apply mb-0;
+        }
+      }
+    }
+  }
+}

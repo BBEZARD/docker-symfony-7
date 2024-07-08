@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ home.metaTitle | trans }}{% endblock %}
+
+{% block body %}
+    {% include 'home/_home.html.twig' %}
+    {% include 'home/_service.html.twig' %}
+    {% include 'home/_benefit.html.twig' %}
+    {% include 'home/_location.html.twig' %}
+    {% include 'home/_opinion.html.twig' %}
+    {% include 'home/_contact.html.twig' %}
+    {% include 'shared/cookie/cookie.html.twig' %}
+{% endblock %}

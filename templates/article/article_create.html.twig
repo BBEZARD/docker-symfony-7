@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ title.create | trans }}{% endblock %}
+
+{% block body %}
+    <section id="hw-articles-new" class="container">
+        <h1>{{ title.create | trans }}</h1>
+        <div class="hw-underline-new"></div>
+
+        {{ form_start(formView) }}
+        {{ form_errors(formView) }}
+
+        <div class="pr-4 flex-grow">{{ form_row(formView.title) }}</div>
+        <div class="pr-4 flex-grow">{{ form_row(formView.metaTitle) }}</div>
+        <div class="flex w-full align-top mb-4">
+            <div class="pr-4 flex-grow">{{ form_row(formView.slug) }}</div>
+            <div class="pr-4 flex-grow">{{ form_row(formView.categories) }}</div>
+        </div>
+
+        <div class="flex w-full align-top mb-4">
+            <div class="pr-4 flex-grow">{{ form_row(formView.mainPicture) }}</div>
+            <div class="pr-4 w-1/4"><img id="article-img" src="" alt=""></div>
+            <div class="flex-grow">{{ form_row(formView.mainPictureCaption) }}</div>
+        </div>
+
+        <div class="flex w-full align-top">
+            <div class="pr-4">{{ form_row(formView.shortDescription) }}</div>
+            <div class="">{{ form_row(formView.summary) }}</div>
+        </div>
+
+        {{ form_row(formView.content) }}
+        {{ form_row(formView.status) }}
+
+        <input type="submit" value="{{ title.action.create | trans }}"
+               class="a-btn article-btn hover:font-bold cursor-pointer">
+
+        {{ form_end(formView) }}
+    </section>
+{% endblock %}

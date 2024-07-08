@@ -1,0 +1,13 @@
+/* Style the list */
+ul.breadcrumb {
+  @apply text-right;
+  padding: 10px 16px;
+  & li {
+    @apply text-gray-900;
+    display: inline-block;
+  }
+  & li+li:before {
+    padding: 0 4px;
+    content: url('../images/logos/chev-left.png');
+  }
+}

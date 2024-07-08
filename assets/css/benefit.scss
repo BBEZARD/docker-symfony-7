@@ -1,0 +1,40 @@
+#hw-benefit {
+  @apply max-w-5xl;
+
+  .hw-underline-new {
+    @apply mb-6 mx-auto;
+  }
+
+  .benefit-content {
+    @apply grid grid-cols-1 gap-16 justify-center justify-items-center;
+
+    @screen md {
+      @apply grid-cols-2;
+    }
+
+    .benefit-card {
+      @apply flex flex-col my-8 max-w-md shadow-md bg-gray-100;
+
+      .benefit-card-header {
+        @apply flex flex-col items-center;
+
+        p {
+          @apply font-semibold text-gray-900;
+        }
+      }
+
+      .benefit-card-body {
+        @apply text-center p-12;
+
+       /*  @screen md {
+          @apply p-12;
+        } */
+
+        h3 {
+          @apply mb-2
+        }
+      }
+    }
+  }
+
+}

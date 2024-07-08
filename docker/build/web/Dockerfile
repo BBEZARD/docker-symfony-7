@@ -38,6 +38,14 @@ RUN set -eux; \
         exif \
     ;
 
+# Install Node.js and npm
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -; \
+    apt-get install -y nodejs; \
+# Install yarn
+RUN npm install -g yarn; \
+    apt-get clean; \
+    rm -rf /var/lib/apt/lists/*
+
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php && \
     php composer-setup.php --install-dir=/usr/local/bin --filename=composer && \

@@ -1,0 +1,23 @@
+title:
+  section.1
+subTitle:
+  about.subTitle
+picture:
+  src_xs: portrait_new_320.jpg
+  src_md: portrait_new_640.jpg
+  src_lg: portrait_new_768.jpg
+  alt:
+    about.picture.alt
+sections:
+  section1:
+    title:
+      about.section1.title
+    content:
+      about.section1.content1
+  section2:
+    title:
+      about.section2.title
+    content:
+      about.section2.content1
+btn:
+  about.contact

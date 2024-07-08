@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ cgv.title|trans }}{% endblock %}
+
+{% block body %}
+<section class="cgv container">
+    <h1>{{ cgv.title|trans|upper }}<br />
+        <span>{{ cgv.subTitle|trans }}</span>
+    </h1>
+    <ul class="cgv-summary">
+        {% set i = 1 %}
+        {% for section in cgv.sections %}
+            {% set txt = section.title|trans|raw|split(' ', 2) %}
+            <li><a href="#cgv-{{ i }}"><span>{{ txt|first }} </span>{{ txt|last|raw }}</a></li>
+            {% set i = i + 1 %}
+        {% endfor %}
+    </ul>
+
+    <div class="cgv-container">
+        {% set j = 1 %}
+        {% for section in cgv.sections %}
+            <h2 id="cgv-{{ j }}">{{ section.title|trans|upper|raw }}</h2>
+            <div class="hw-underline-new"></div>
+            {% if section.content is not iterable %}
+            <p>{{ section.content|trans|raw }}</p>
+            {% else %}
+            {% for i in 0..section.content.title|length-1 %}
+            <h3>{{ section.content.title[i]|trans|raw }}</h3>
+            <p class="ml-2">{{ section.content.description[i]|trans|raw }}</p>
+            {% endfor %}
+            {% endif %}
+            {% set j = j + 1 %}
+        {% endfor %}
+    </div>
+</section>
+{% include 'shared/cookie/cookie.html.twig' %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ policy.title|trans }}{% endblock %}
+
+{% block body %}
+<section class="policy container ">
+    <h1>{{ policy.title|trans|upper }}</h1>
+    <ul class="policy-summary">
+        {% set i = 1 %}
+        {% for section in policy.sections %}
+            {% set txt = section.title|trans|raw|split(' ', 2) %}
+            <li><a href="#policy-{{ i }}"><span>{{ txt|first }} </span>{{ txt|last|raw }}</a></li>
+            {% set i = i + 1 %}
+        {% endfor %}
+    </ul>
+    <div class="policy-container">
+        {% set j = 1 %}
+        {% for section in policy.sections %}
+        <h2 id="policy-{{ j }}">{{ section.title|trans|upper|raw }}</h2>
+        <div class="hw-underline-new"></div>
+        {% for contents in section.content %}
+        <p>{{ contents|trans|raw }}</p>
+        {% endfor %}
+        {% set j = j + 1 %}
+        {% endfor %}
+    </div>
+</section>
+{% include 'shared/cookie/cookie.html.twig' %}
+{% endblock %}

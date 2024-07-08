@@ -1,0 +1,3 @@
+beelab_recaptcha2:
+    site_key: '%env.test(APP_RECAPTCHA_SITE_KEY)%'
+    secret: '%env.test(APP_RECAPTCHA_SECRET)%'

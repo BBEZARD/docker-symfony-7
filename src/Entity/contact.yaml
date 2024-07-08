@@ -1,0 +1,18 @@
+title:
+  contact.title
+btn:
+  contact.btn
+logo:
+  - contact.svg
+  - phone.svg
+  - envelope.svg
+alt:
+  - ""
+  - ""
+  - ""
+text:
+  - adress.text
+  - text.1
+  - text.2
+validation:
+  contactValid.label

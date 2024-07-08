@@ -1,0 +1,23 @@
+{% block body %}
+	<section id="hw-home" class="section mt-0">
+		<div class="hw-home-banner">
+			<img srcset="{{ asset('build/images/home/' ~ home.picture.src_xs) }} 640w, {{ asset('build/images/home/' ~ home.picture.src_md) }} 768w, {{ asset('build/images/home/' ~ home.picture.src_lg) }} 1280w" sizes="(max-width: 640px) 640px,
+																        (max-width: 768px) 768px,
+																        1280px" src="{{ asset('build/images/home/' ~ home.picture.src_lg) }}" alt="{{ home.picture.alt|trans }}">
+			<div class="hw-banner-title">
+				<p>{{ home.banner|trans|raw }}</p>
+				<div class="a-btn home-btn">
+					<a href="{{ path('home') }}{{ header.nav.lower.href[9]|trans }}">
+						Je prends rendez-vous</a>
+				</div>
+			</div>
+		</div>
+		<div class="hw-home-content container">
+			<h1>{{ home.title|trans }}</h1>
+			<div class="hw-underline-new"></div>
+			{% for i in 0..home.content|length -1 %}
+				<p>{{ home.content[i]|trans|raw }}</p>
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

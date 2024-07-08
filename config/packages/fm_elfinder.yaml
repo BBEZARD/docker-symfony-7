@@ -1,0 +1,31 @@
+fm_elfinder:
+    instances:
+        default:
+            locale: fr
+            cors_support: true
+            editor: ckeditor
+            fullscreen: false # defaults true, applies to simple and ckeditor editors
+            connector:
+                roots:
+                    uploads:
+                        driver: LocalFileSystem
+                        path: uploads/images
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+                        upload_deny: ['all']
+                        upload_max_size: 2M
+                        show_hidden: false
+        form:
+            locale: fr # defaults to current request locale
+            cors_support: true
+            editor: form # other choices are tinymce or simple, and form
+#            show_hidden: false # defaults to false
+            fullscreen: false # defaults true, applies to simple and ckeditor editors
+            connector:
+                debug: false # defaults to false
+                roots: # at least one root must be defined
+                    uploads:
+                        driver: LocalFileSystem
+                        path: uploads/images
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+                        upload_deny: ['all']
+                        upload_max_size: 2M

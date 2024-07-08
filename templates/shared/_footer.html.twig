@@ -1,0 +1,51 @@
+{% block body %}
+    <footer id="hw-footer" class="section divide-y divide-white">
+        <div class="footer-upper">
+            <div class="footer-about">
+                <div>
+                    <img src="{{ asset('build/images/logos/HW_W.svg') }}" alt="{{ header.nav.upper.hw.alt }}"
+                         class="w-full">
+                </div>
+                <div>
+                    <p class="hw-underline">{{ footer.upper.about.title|trans }}</p>
+                    <p>{{ footer.upper.about.content|trans|raw }}</p>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <div>
+                    <p class="hw-underline">{{ footer.upper.contact.title|trans }}</p>
+                    <ul class="footer-nav-contact">
+                        {% for i in 0..footer.upper.contact.content.logo|length -1 %}
+                            <li><img src="{{ asset('build/images/logos/' ~ footer.upper.contact.content.logo[i]) }}"
+                                     alt=""> {{ footer.upper.contact.content.txt[i]|trans|raw }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    <p class="hw-underline">{{ footer.upper.rss.title|trans }}</p>
+                    <ul class="footer-nav-rss">
+                        <li><a href="{{ header.nav.upper.facebook.target }}" target="_blank"><img
+                                        src="{{ asset('build/images/logos/' ~ header.nav.upper.facebook.src) }}"
+                                        alt="{{ header.nav.upper.facebook.alt|trans }}"></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="footer-nav-menu divide-y divide-white">
+                        {% for i in 0..footer.upper.nav|length -1 %}
+                            <li>
+                                <a href="{{ path('home') }}{{ footer.upper.href[i]|trans }}">{{ footer.upper.nav[i]|trans }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-lower">
+            <p>{{ footer.lower.txt|trans }} - <a
+                        href="{{ path('policy', {slug: footer.lower.legacy.slug|trans}) }}">{{ footer.lower.legacy.txt|trans }}</a>
+                - <a href="{{ path('cgv', {slug: footer.lower.cgv.slug|trans}) }}">{{ footer.lower.cgv.txt|trans }}</a>
+            </p>
+        </div>
+
+    </footer>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ about.title|trans|lower }}{% endblock %}
+
+{% block body %}
+<section class="about container">
+   <div class="about-container">
+       <div class="about-title">
+           <h1>{{ about.title|trans|raw }}</h1>
+           <p>{{ about.subTitle|trans|raw }}</p>
+           <img
+                   srcset=
+                   "{{ asset('build/images/about/' ~ about.picture.src_xs) }} 640w,
+        {{ asset('build/images/about/' ~ about.picture.src_md) }} 768w,
+         {{ asset('build/images/about/' ~ about.picture.src_lg) }} 1280w"
+                   sizes=
+                   "(max-width: 640px) 640px,
+        (max-width: 768px) 768px,
+        1280px"
+                   src="{{ asset('build/images/price/' ~ about.picture.src_lg) }}"
+                   alt="{{ about.picture.alt|trans }}">
+       </div>
+       <div class="about-description">
+           {% for section in about.sections %}
+               <div class="description-section">
+                   <h2>{{ section.title|trans|raw }}</h2>
+                   <div class="hw-underline-new"></div>
+                   <p>{{ section.content|trans|raw }}</p>
+               </div>
+           {% endfor %}
+           <div class="a-btn about-btn">
+               <a href="{{ path('home') }}#hw-contact">
+                   {{ about.btn|trans }}</a>
+           </div>
+       </div>
+   </div>
+</section>
+{% include 'shared/cookie/cookie.html.twig' %}
+{% endblock %}

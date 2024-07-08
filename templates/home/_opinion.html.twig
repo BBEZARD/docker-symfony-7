@@ -1,0 +1,25 @@
+{% block body %}
+<section id="hw-opinion" class="section">
+    <div>
+        <p class="title">{{ opinions.title|trans }}</p>
+        <div class="hw-underline-new"></div>
+        <div>
+            {% for i in 0..opinions.cards.names|length -1 %}
+            <div class="opinion-card">
+                <div>
+                    <p>{{ opinions.cards.names[i]|trans }}</p>
+                    {% for i in 1..5 %}
+                    <img src="{{ asset('build/images/logos/' ~ opinions.star)}}" alt="">
+                    {% endfor %}
+                </div>
+                <p class="">{{ opinions.cards.comments[i]|trans }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="a-btn opinion-btn">
+        <a href="{{ opinions.btn.href }}" target="_blank">
+            {{ opinions.btn.more|trans }}</a>
+    </div>
+</section>
+{% endblock %}

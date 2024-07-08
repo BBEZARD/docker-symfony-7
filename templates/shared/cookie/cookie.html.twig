@@ -1,0 +1,23 @@
+{% block body %}
+<!-- Bandeau cookie comportant le message et le bouton pour éventuellement s'opposer -->
+<div class="cookie">
+    <div id="cookie-banner" class="is-closed">
+        <div>
+            <p>{{ cookie.message|trans }}</p>
+            <div id="cookie-more-button" class="a-btn">
+                <a href="#">{{ cookie.btnMore|trans }}</a>
+            </div>
+        </div>
+        <span class="banner-close"></span>
+    </div>
+
+    <div id="cookie-inform-and-ask" class="is-closed" tabindex="-1">
+        <div class="form-btn">
+            {% include 'shared/cookie/_choices.html.twig' %}
+            <div id="ga-confirm-button" class="a-btn">
+                <a href="#">{{ cookie.btnValid|trans }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

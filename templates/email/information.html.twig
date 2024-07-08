@@ -1,0 +1,66 @@
+{% apply inline_css %}
+
+<style>
+    .card {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: 50vw;
+        margin: 0 auto;
+        padding: 0;
+        border: 1px solid #babbbc;
+        border-radius: 2px;
+        background-color: #edf2f7;
+    }
+    .card-body {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        margin: 0;
+        padding: 0 0 1em 0;
+    }
+    .card-title {
+        text-align: center;
+        color: #FFF;
+        margin: 0;
+        padding: 1em;
+        font-weight: bold;
+        font-size: 1.3em;
+        background-color: #ff6700;
+    }
+    .card-subtitle {
+        margin: 1em;
+        color: #132045;
+        text-align: left;
+        font-size: 1.1em;
+        font-style: italic;
+    }
+    .card-text {
+        text-align: left;
+        padding: 1em;
+        font-size: 1em;
+    }
+
+    .card-link {
+        padding: 1em;
+    }
+
+    @media screen and (max-width: 640px) {
+        .card {
+            width: 80vw;
+        }
+    }
+
+</style>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ email.subject }}</h5>
+        <h6 class="card-subtitle">De {{ message.firstname }} {{ message.lastname }} le {{ date|format_datetime('full', 'none', locale='fr') }} à {{date|format_datetime('none', 'short', locale='fr') }}</h6>
+        <p class="card-text">{{ message.contactMessage }}</p>
+        <a href="mailto:{{ message.contactEmail }}" class="card-link">Répondre à {{ message.contactEmail }}</a>
+    </div>
+</div>
+
+{% endapply %}

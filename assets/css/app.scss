@@ -1,0 +1,363 @@
+$duration : .25s;
+$input-border : theme('colors.gray.200');
+$input-focus-color : theme('colors.orange.400');
+$input-focus-error : #FF5555;
+@import "~tailwindcss/base",
+"~tailwindcss/components",
+"~tailwindcss/utilities",
+"~leaflet";
+
+@import "nav",
+"home",
+"service",
+"benefit",
+"location",
+"opinion",
+"contact",
+"cookie",
+"about",
+"articles",
+"breadcrumbs",
+"bage",
+"footer",
+"policy",
+"modal",
+"cgv";
+
+@import "animations";
+
+@font-face {
+  font-family: Cuprum;
+  src: url("../fonts/Cuprum-VariableFont_wght.ttf");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: Verdana, tahoma, -apple-system, sans-serif;
+  @apply font-bold;
+}
+
+h1,
+h2 {
+  @apply text-center text-3xl font-bold text-gray-900;
+}
+
+p {
+  @apply text-lg mt-4;
+
+  strong {
+    @apply font-semibold text-gray-900;
+  }
+}
+
+label {
+  @apply text-lg;
+}
+
+p,
+a,
+li {
+  font-family: Verdana, tahoma, -apple-system, sans-serif;
+  @apply text-lg;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  @apply relative;
+}
+
+.title {
+  @apply text-center text-3xl font-bold text-gray-900;
+}
+
+.section {
+  @apply z-0 relative mx-auto my-12 px-4;
+}
+
+#HW-flash {
+  animation: .5s flash;
+
+  .HW-flash-container div {
+    @apply relative rounded-sm p-2 shadow;
+  }
+
+  .HW-flash-danger {
+    background-color: $input-focus-error;
+  }
+
+  .HW-flash-success {
+    @apply bg-green-600;
+  }
+
+  #HW-flash-close {
+    @apply text-white;
+    right: 3px;
+    top: 6px;
+    line-height: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes flash {
+  0% {
+    transform: translateY(-190px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hw-section {
+  @apply z-50 bg-white max-w-full mx-auto;
+}
+
+.login {
+  @apply z-0 relative max-w-lg mx-auto my-12;
+
+  h1 {
+    @apply text-4xl font-bold text-gray-900;
+  }
+}
+
+.hw-404 {
+  font-size: 230px;
+  margin: -50px 0;
+  @apply text-orange-600;
+}
+
+.hw-underline {
+  &:after {
+    content: '';
+    position: absolute;
+    top: theme('spacing.8');
+    left: 0;
+    width: theme('spacing.10');
+    height: 2px;
+    background-color: theme('colors.orange.600');
+  }
+}
+
+.hw-underline-new {
+  width: theme('spacing.10');
+  height: 2px;
+  margin-bottom: theme('spacing.2');
+  margin-top: theme('spacing.2');
+  background-color: theme('colors.orange.600');
+}
+
+.a-btn {
+  overflow: hidden;
+
+  @apply z-20 relative bg-orange-600 text-white w-32;
+
+  &:active {
+    animation: press 150ms forwards;
+  }
+
+  a:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255, 255, 255, 0.5) 50%, rgba(229, 172, 142, 0));
+    transform: rotateZ(60deg) translate(-5em, 9em);
+  }
+
+  a:after {
+    width: 0;
+  }
+
+  a:focus {
+    @apply text-white;
+  }
+
+  a:hover:before {
+    animation: sheen 1s forwards;
+  }
+}
+
+form,
+{
+.checked {
+  border-color: $input-border;
+  background-image: url('../images/logos/check.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.missing {
+  border: 2px solid $input-focus-error;
+}
+
+.check-label {
+  position: relative;
+  cursor: pointer;
+  width: 25px;
+  height: 20px;
+  margin-top: 5px;
+
+  .checkmark {
+    @apply border-4 rounded-md;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+  }
+
+  &:hover .checkmark {
+    @apply border-4;
+    border-color: $input-focus-color;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    left: 0;
+    width: 0;
+  }
+}
+
+input,
+textarea {
+  @apply w-full;
+  padding: theme('spacing.2') theme('spacing.2');
+  background-color: theme('white');
+  transition: 180ms box-shadow ease-in-out;
+  @apply my-2 rounded-md border-2;
+  border-color: $input-border;
+
+  &:focus {
+    @apply outline-none;
+    @apply border-opacity-100;
+    border-color: $input-focus-color;
+  }
+
+  &:required {
+    box-shadow: none;
+  }
+}
+
+textarea {
+  height: 200px;
+}
+
+.form-btn-off {
+  @apply z-20 flex justify-center items-center bg-gray-500 text-white w-32;
+
+  button {
+    cursor: not-allowed;
+  }
+}
+
+.form-btn {
+  overflow: hidden;
+  position: relative;
+  @apply z-20 flex justify-center items-center bg-orange-600 text-white w-32;
+
+  &:active {
+    animation: press 150ms forwards;
+  }
+
+  button:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255, 255, 255, 0.5) 50%, rgba(229, 172, 142, 0));
+    transform: rotateZ(60deg) translate(-5em, 7.5em);
+  }
+
+  button:after {
+    width: 0;
+  }
+
+  button:focus {
+    @apply text-white;
+  }
+
+  button:hover:before {
+    animation: sheen 1s forwards;
+  }
+}
+
+ul {
+  li {
+    position: relative;
+    padding-left: 25px;
+    @apply text-red-700;
+
+    &:before {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      display: block;
+      content: '';
+      width: 20px;
+      height: 20px;
+      background-image: url('../images/logos/alert.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.is-closed {
+  animation: hide $duration forwards;
+}
+}
+
+#return-to-top {
+  @apply z-10;
+  position: fixed;
+  display: none;
+  right: 20px;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  text-decoration: none;
+  @apply bg-orange-600;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  opacity: .4;
+  border-radius: 35px;
+  transition: opacity .3s ease;
+
+  & .top-img {
+    @apply z-10;
+    position: relative;
+    top: 12px;
+    width: 20px;
+    margin: 0 auto;
+    font-size: 9px
+  }
+
+  &:hover {
+    @apply bg-orange-600;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+    opacity: .8;
+    transition: opacity .3s ease;
+  }
+
+  &.show {
+    animation: bottomToTop $duration forwards;
+  }
+}

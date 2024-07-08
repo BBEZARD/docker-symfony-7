@@ -1,0 +1,12 @@
+{% for label, messages in app.flashes %}
+    <div id="HW-flash">
+        {% for message in messages %}
+            <div class="HW-flash-container">
+                <div class="HW-flash-{{ label }}">
+                    <p class="text-white text-lg p-2">{{ message|trans }}</p>
+                    <span id="HW-flash-close" class="absolute" aria-hidden="true">&times;</span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}

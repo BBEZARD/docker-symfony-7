@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ header.login.connexion | trans }}{% endblock %}
+
+{% block body %}
+<section class="login">
+    <h1>{{ header.login.connexion | trans }}</h1>
+    <div class="hw-underline-new"></div>
+    {{ form_start(formView) }}
+    {{ form_widget(formView) }}
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    <button type="submit" class='a-btn block px-2 py-1 text-xl font-semibold focus:outline-none hover:font-bold'><span>{{ header.login.connexion | trans }}</span></button>
+    {{ form_end(formView) }}
+
+</section>
+{% endblock %}

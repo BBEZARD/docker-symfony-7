@@ -22,3 +22,17 @@
 2024-06-22 06:21:13,498 INFO spawned: 'php-fpm' with pid 8
 2024-06-22 06:21:14,560 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2024-06-22 06:21:14,560 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-07-07 08:34:28,154 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2024-07-07 08:34:28,159 INFO supervisord started with pid 1
+2024-07-07 08:34:29,162 INFO spawned: 'nginx' with pid 7
+2024-07-07 08:34:29,164 INFO spawned: 'php-fpm' with pid 8
+2024-07-07 08:34:30,215 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-07-07 08:34:30,215 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-07-07 09:05:31,512 INFO reaped unknown pid 591 (terminated by SIGTERM)
+2024-07-07 09:54:49,101 INFO reaped unknown pid 689 (terminated by SIGTERM)
+2024-07-08 05:41:05,970 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2024-07-08 05:41:05,978 INFO supervisord started with pid 1
+2024-07-08 05:41:06,982 INFO spawned: 'nginx' with pid 7
+2024-07-08 05:41:06,984 INFO spawned: 'php-fpm' with pid 8
+2024-07-08 05:41:08,231 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-07-08 05:41:08,231 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

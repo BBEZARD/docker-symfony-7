@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale|u.truncate(2) }}">
+    <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BZ69Z88ZJE"></script>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-5LP33M7');</script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="{{ header.meta.author }}">
+        {% block metaDescription %}
+        <meta name="description" content="{{ header.meta.description|trans }}">
+        {% endblock %}
+        <meta name="keywords" content="{{ header.meta.keywords|trans }}">
+        <meta name="creator" content="{{ header.meta.creator }}">
+
+        <!-- Open Graph data FaceBook-->
+        <meta property="og:url" content="{{ header.ogFB.url }}"/>
+        <meta property="og:locale" content="{{ app.request.locale }}">
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="{{ header.ogFB.title|trans }}">
+        <meta property="og:description" content="{{ header.ogFB.description|trans }}"/>
+        <meta property="og:image" content="{{ asset('build/images/about/' ~ header.ogFB.image ) }}" />
+
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="{{ header.meta.description|trans }}">
+        <meta name="twitter:site" content="{{ header.ogFB.url }}">
+        <meta name="twitter:title" content="{{ header.ogFB.title|trans }}">
+        <meta name="twitter:description" content="{{ header.meta.description|trans }}">
+        <meta name="twitter:creator" content="@author_handle">
+        <!-- favicons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('build/images/logos/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('build/images/logos/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('build/images/logos/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ asset('build/images/logos/manifest.json') }}">
+        <link rel="mask-icon" href="{{ asset('build/images/logos/safari-pinned-tab.svg') }}" color="#5bbad5">
+        <title>{% block title %}Bienvenue!{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+    <body class="relative bg-white">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5LP33M7"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    {% include 'shared/_navbar.html.twig' %}
+
+    <!-- Return to Top -->
+    <a href="javascript:" id="return-to-top"><img class="top-img" src="{{ asset('build/images/logos/chevron-up-solid.svg') }}" alt=""></a>
+    {% block body %}{% endblock %}
+    {% include 'shared/_footer.html.twig' %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+    <script src="//www.google.com/recaptcha/api.js?hl={{ app.request.locale }}" async defer>
+    </script>
+    </body>
+</html>

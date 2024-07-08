@@ -1,0 +1,61 @@
+#hw-contact {
+  @apply max-w-full;
+  > div {
+    @apply flex flex-col max-w-5xl mx-auto;
+    > div {
+      @apply flex mx-4 flex-col;
+      @screen md {
+        @apply flex-row;
+      }
+      > div {
+        @apply relative flex flex-wrap justify-around;
+        .address-container {
+          @apply flex flex-col items-start justify-start my-6 w-full;
+          h2 {
+            @apply relative text-center text-4xl font-bold text-gray-900;
+          }
+          .address {
+            @apply flex text-lg mb-2;
+            > div {
+              @apply h-5 w-5 bg-orange-600 rounded-full mt-1 mr-2;
+              img {
+                @apply h-3 ml-1 mt-1;
+              }
+            }
+            p {
+              @apply mt-0;
+            }
+          }
+        }
+        form {
+          .contact-form-checkmark {
+            @apply flex justify-start mb-4;
+            .check-label {
+              @apply pr-8;
+            }
+          }
+          #form-submit {
+            @apply mt-2;
+            button {
+              @apply block w-full px-2 py-1 text-xl font-semibold;
+              &:focus {
+                @apply outline-none;
+              }
+            }
+          }
+        }
+      }
+      .contact-map {
+        @apply z-0;
+        #map-id {
+          @apply ml-4 mt-6 border-gray-200 border-2 shadow-lg;
+          height: 800px;
+          width:  500px;
+          a {
+            @apply text-xs;
+          }
+        }
+      }
+    }
+  }
+}

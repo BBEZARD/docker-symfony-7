@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ table.list | trans }}{% endblock %}
+
+{% block body %}
+{% if app.user %}
+    {% include 'shared/_modal.html.twig' %}
+{% endif %}
+<section id="hw-articles-list" class="container">
+    <h1>{{ table.list | trans }}</h1>
+    <div class="hw-underline-new"></div>
+    <div class="a-btn article-btn">
+        <a href="{{ path('category_create') }}">{{ table.btn | trans }}</a>
+    </div>
+    {% if categories | length > 0 %}
+        <div class="articles-table">
+            <table>
+                <thead>
+                    <tr>
+                        {% for header in table.col %}
+                            <th>{{ header | trans }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.description | raw }}</td>
+                    <td>
+                        <a class="table-edit" href="{{ path('category_edit', {'id': category.id}) }}"><img class="text-white" src="{{ asset('build/images/logos/edit-regular.svg') }}" alt="{{ table.action.edit | trans }}" title="{{ table.action.edit | trans }}"></a>
+                        <a class="table-delete" href="{{ path('category_delete', {'id': category.id }) }}"><img class="text-white" src="{{ asset('build/images/logos/trash-alt-regular.svg') }}"    alt="{{ table.action.delete | trans }}" title="{{ table.action.delete | trans }}"></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="1"></td>
+                    <td colspan="1">{{ table.total | trans }}</td>
+                    <td colspan="1">{{ categories | length }}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    {% else %}
+        <h2>{{ title.empty | trans }}</h2>
+    {% endif %}
+</section>
+{% endblock %}

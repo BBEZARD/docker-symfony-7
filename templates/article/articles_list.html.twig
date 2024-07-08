@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title.list | trans }}{% endblock %}
+
+{% block body %}
+{% if app.user %}
+    {% include 'shared/_modal.html.twig' %}
+{% endif %}
+<section id="hw-articles-list" class="container">
+    <h1>{{ title.list | trans }}</h1>
+    <div class="hw-underline-new"></div>
+    <div class="a-btn article-btn">
+        <a href="{{ path('article_create') }}">{{ title.btn | trans }}</a>
+    </div>
+    {% if articles | length > 0 %}
+        <div class="articles-table">
+            <table>
+                <thead>
+                    <tr>
+                        {% for header in title.table %}
+                            {% if header == title.table | last %}
+                                <th colspan="3">{{ header | trans }}</th>
+                            {% else %}
+                                <th>{{ header | trans }}</th>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                </thead>
+            <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td>{{ article.title }}</td>
+                    <td>{{ article.shortDescription | raw }}</td>
+                    <td>{{ article.createdAt | date('d/m/Y H:i')}}</td>
+                    <td>{{ article.updatedAt | date('d/m/Y H:i')}}</td>
+                    <td>
+                        {% if article.status == constant('App\\Entity\\Articles::STATUS_DRAFT') %}
+                            {{ title.status.draft | trans }}
+                        {% else %}
+                            {{ title.status.published | trans }}
+                        {% endif %}
+                        </td>
+                    <td>
+                        <a class="table-show" href="{{ path('article_show', {
+                            'categories_slug': article.categories.first.slug,
+                            'slug': article.slug
+                        }) }}"><img class="text-white" src="{{ asset('build/images/logos/eye-regular.svg') }}" alt="{{ title.action.show | trans }}" title="{{ title.action.show | trans }}"></a>
+                    </td>
+                    <td>
+                        <a class="table-edit" href="{{ path('article_edit', {'id': article.id}) }}"><img class="text-white" src="{{ asset('build/images/logos/edit-regular.svg') }}" alt="{{ title.action.edit | trans }}" title="{{ title.action.edit | trans }}"></a>
+                    </td>
+                    <td>
+                        <a class="table-delete" href="{{ path('article_delete', {'id': article.id }) }}"><img class="text-white" src="{{ asset('build/images/logos/trash-alt-regular.svg') }}" alt="{{ title.action.delete | trans }}" title="{{ title.action.delete | trans }}"></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4"></td>
+                    <td colspan="1">{{ title.total | trans }}</td>
+                    <td colspan="3">{{ articles | length }}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    {% else %}
+        <h2>{{ title.empty | trans }}</h2>
+    {% endif %}
+</section>
+{% endblock %}

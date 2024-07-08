@@ -1,0 +1,60 @@
+# Read the documentation: https://symfony.com/doc/current/bundles/FOSCKEditorBundle/index.html
+
+twig:
+  form_themes:
+    - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+fos_ck_editor:
+  configs:
+    content_config:
+      font_defaultLabel: 'Verdana'
+      font_names: "Verdana;sans-serif"
+      height: 100vh
+      uiColor: '#cbd5e0'
+      toolbar: "complete"
+      extraPlugins: 'wordcount,notification,image2,embed,autoembed'
+      filebrowserBrowseRoute: elfinder
+      filebrowserBrowseRouteParameters: [ ]
+      embed_provider: '//iframe.ly/api/oembed?url={url}&callback={callback}&api_key=33e77e42c7a23f65c0d6e4'
+    shortDescription_config:
+      font_defaultLabel: 'Cuprum'
+      font_names: "Verdana;sans-serif"
+      height: 200px
+      uiColor: '#cbd5e0'
+      toolbar: "simplify"
+      extraPlugins: 'wordcount,notification'
+      filebrowserBrowseRoute: elfinder
+      filebrowserBrowseRouteParameters: [ ]
+  toolbars:
+    configs:
+      complete: [ "@style", "@font", "@link", "@search", "@list", "@blocks" ]
+      simplify: [ "@style", "@font", "@link","@list" ]
+    items:
+      style: [ "Source", "Bold" , "Italic", "Underline", "Blockquote", "Subscript", "Superscript", "-", "RemoveFormat", "-", "Scayt" ]
+      font: [ "Styles","Format", "Font", "FontSize", "TextColor" ]
+      link: [ "Link", "Anchor" ]
+      search: [ "Find", "Replace" ]
+      list: [ "NumberedList", "BulletedList" ]
+      blocks: [ "Image","Embed","HorizontalRule", "-","Div", "Blocks" ]
+
+  plugins:
+    wordcount:
+      path: "/build/ckeditor/plugins/wordcount/" # with trailing slash
+      filename: "plugin.js"
+    image2:
+      path: "/build/ckeditor/plugins/image2/"
+      filename: "plugin.js"
+    embed:
+      path: "/build/ckeditor/plugins/embed/"
+      filename: "plugin.js"
+    embedbase:
+      path: "/build/ckeditor/plugins/embedbase/"
+      filename: "plugin.js"
+    autoembed:
+      path: "/build/ckeditor/plugins/autoembed/"
+      filename: "plugin.js"
+    autolink:
+      path: "/build/ckeditor/plugins/autolink/"
+      filename: "plugin.js"
+    textmatch:
+      path: "/build/ckeditor/plugins/textmatch/"
+      filename: "plugin.js"
