@@ -1,6 +1,0 @@
-User-Agent: *
-Disallow: /admin/articles
-Disallow: /policy/mentions-légales
-Disallow: /cgv/conditions-générales-de-vente
-
-Sitemap: https://informatique.hourraweb.fr/sitemap.xml
